@@ -9622,6 +9622,22 @@ GenL4.menu.pnum.GENERIC_L486VGTX.build.board=GENERIC_L486VGTX
 GenL4.menu.pnum.GENERIC_L486VGTX.build.product_line=STM32L486xx
 GenL4.menu.pnum.GENERIC_L486VGTX.build.variant=STM32L4xx/L475V(C-E-G)T_L476V(C-E-G)T_L486VGT
 
+# Generic L496RETx
+GenL4.menu.pnum.GENERIC_L496RETX=Generic L496RETx
+GenL4.menu.pnum.GENERIC_L496RETX.upload.maximum_size=524288
+GenL4.menu.pnum.GENERIC_L496RETX.upload.maximum_data_size=327680
+GenL4.menu.pnum.GENERIC_L496RETX.build.board=GENERIC_L496RETX
+GenL4.menu.pnum.GENERIC_L496RETX.build.product_line=STM32L496xx
+GenL4.menu.pnum.GENERIC_L496RETX.build.variant=STM32L4xx/L496R(E-G)T_L4A6RGT
+
+# Generic L496RGTx
+GenL4.menu.pnum.GENERIC_L496RGTX=Generic L496RGTx
+GenL4.menu.pnum.GENERIC_L496RGTX.upload.maximum_size=1048576
+GenL4.menu.pnum.GENERIC_L496RGTX.upload.maximum_data_size=327680
+GenL4.menu.pnum.GENERIC_L496RGTX.build.board=GENERIC_L496RGTX
+GenL4.menu.pnum.GENERIC_L496RGTX.build.product_line=STM32L496xx
+GenL4.menu.pnum.GENERIC_L496RGTX.build.variant=STM32L4xx/L496R(E-G)T_L4A6RGT
+
 # Generic L496ZETx
 GenL4.menu.pnum.GENERIC_L496ZETX=Generic L496ZETx
 GenL4.menu.pnum.GENERIC_L496ZETX.upload.maximum_size=524288
@@ -9645,6 +9661,14 @@ GenL4.menu.pnum.GENERIC_L496ZGTXP.upload.maximum_data_size=327680
 GenL4.menu.pnum.GENERIC_L496ZGTXP.build.board=GENERIC_L496ZGTXP
 GenL4.menu.pnum.GENERIC_L496ZGTXP.build.product_line=STM32L496xx
 GenL4.menu.pnum.GENERIC_L496ZGTXP.build.variant=STM32L4xx/L496ZGTxP_L4A6ZGTxP
+
+# Generic L4A6RGTx
+GenL4.menu.pnum.GENERIC_L4A6RGTX=Generic L4A6RGTx
+GenL4.menu.pnum.GENERIC_L4A6RGTX.upload.maximum_size=1048576
+GenL4.menu.pnum.GENERIC_L4A6RGTX.upload.maximum_data_size=327680
+GenL4.menu.pnum.GENERIC_L4A6RGTX.build.board=GENERIC_L4A6RGTX
+GenL4.menu.pnum.GENERIC_L4A6RGTX.build.product_line=STM32L4A6xx
+GenL4.menu.pnum.GENERIC_L4A6RGTX.build.variant=STM32L4xx/L496R(E-G)T_L4A6RGT
 
 # Generic L4A6ZGTx
 GenL4.menu.pnum.GENERIC_L4A6ZGTX=Generic L4A6ZGTx
