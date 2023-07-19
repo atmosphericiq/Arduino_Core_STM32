@@ -14,7 +14,7 @@
  * Automatically generated from STM32L496R(E-G)Tx.xml, STM32L4A6RGTx.xml
  * CubeMX DB release 6.0.80
  */
-#if !defined(ARDUINO_CBOT_L496)
+#if defined(ARDUINO_CBOT_L496)
 #include "Arduino.h"
 #include "PeripheralPins.h"
 
