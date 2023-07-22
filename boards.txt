@@ -11049,6 +11049,8 @@ AtmosphericIQ.menu.pnum.CBOT_L496.build.variant_h=variant_{build.board}.h
 AtmosphericIQ.menu.pnum.CBOT_L496.build.variant=STM32L4xx/L496R(E-G)T_L4A6RGT
 AtmosphericIQ.menu.pnum.CBOT_L496.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
 AtmosphericIQ.menu.pnum.CBOT_L496.build.cmsis_lib_gcc=arm_cortexM4lf_math
+AtmosphericIQ.menu.pnum.CBOT_L496.build.vid=0x0483
+AtmosphericIQ.menu.pnum.CBOT_L496.build.pid=0x5740
 
 # Upload menu
 AtmosphericIQ.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
