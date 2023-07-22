@@ -155,6 +155,10 @@
   #define PIN_SERIAL_TX         PC12
 #endif
 
+// Extra HAL modules
+#if !defined(HAL_CRC_MODULE_ENABLED)
+  #define HAL_CRC_MODULE_ENABLED
+#endif
 // Value of the External oscillator in Hz
 #define HSE_VALUE               8000000U
 
