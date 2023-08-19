@@ -47,6 +47,12 @@
 
 #define PB6                     20  // Button_LED
 
+#define PB9                     21  // DONE (TPL5110 power timer)
+#define PC1                     22  // DETECT (AD5933 electrode)
+
+#define PC9                     23  // BAT_CH
+#define PA8                     24  // BAT_CON
+
 // Alternate pins number
 #define PA0_ALT1                (PA0  | ALT1)
 #define PA1_ALT1                (PA1  | ALT1)
@@ -97,7 +103,7 @@
 #define PC10_ALT1               (PC10 | ALT1)
 #define PC11_ALT1               (PC11 | ALT1)
 
-#define NUM_DIGITAL_PINS        21
+#define NUM_DIGITAL_PINS        25
 #define NUM_ANALOG_INPUTS       0
 
 // On-board LED pin number
@@ -157,6 +163,7 @@
 
 // Value of the External oscillator in Hz
 #define HSE_VALUE               8000000U
+#define LSE_VALUE               32768U
 
 // Extra HAL modules
 
