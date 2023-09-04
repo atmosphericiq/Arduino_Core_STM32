@@ -20,9 +20,10 @@ const PinName digitalPin[] = {
   PB_10,  // SCL
   PB_11,  // SDA
   PB_12,  // SD_CS
+  PB_13,  // SCK
   PB_14,  // MISO
   PB_15,  // MOSI
-  PA_9,   // SCK
+  PA_9,   // USB_VBUS
   PA_11,  // USB_DM
   PA_12,  // USB_DP
   PA_13,  // SWDIO
@@ -36,6 +37,7 @@ const PinName digitalPin[] = {
   PB_4,   // SARA_RTS
   PB_5,   // SARA_CTS
   PB_6,   // Button_LED
+  PA_10,  // LED
   PB_9,   // DONE (TPL5110 power timer)
   PC_1,   // DETECT (AD5933 electrode)
   PC_9,   // BAT_CHRG
@@ -64,23 +66,23 @@ WEAK void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {};
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {};
 
-  /* Configure the main internal regulator output voltage */
+    /* Configure the main internal regulator output voltage */
   if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE2) != HAL_OK) {
     Error_Handler();
   }
 
   /* Configure LSE Drive Capability */
   HAL_PWR_EnableBkUpAccess();
-  // __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_MEDIUMHIGH);
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
 
   /*
    * Initializes the RCC Oscillators according to the specified parameters
    * in the RCC_OscInitTypeDef structure.
    */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48 | RCC_OSCILLATORTYPE_LSI
-                                     | RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48 | RCC_OSCILLATORTYPE_HSE
+                                     | RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
@@ -107,15 +109,12 @@ WEAK void SystemClock_Config(void)
   /* Enables the Clock Security System */
   HAL_RCC_EnableCSS();
 
-  /* Enables the Clock Security System */
-  // HAL_RCCEx_EnableLSECSS();
-
   /* Initializes the peripherals clock */
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB | RCC_PERIPHCLK_SDMMC1
                                        | RCC_PERIPHCLK_RTC;
   PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_HSI48;
   PeriphClkInit.Sdmmc1ClockSelection = RCC_SDMMC1CLKSOURCE_HSI48;
-  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
+  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK) {
     Error_Handler();
   }

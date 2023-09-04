@@ -15,6 +15,7 @@
 /*----------------------------------------------------------------------------
  *        STM32 pins number
  *----------------------------------------------------------------------------*/
+
 #define PA2                     0  // GNSS_EN
 
 #define PB1                     1  // SD_DET
@@ -23,35 +24,37 @@
 #define PB11                    3  // SDA
 
 #define PB12                    4  // SD_CS
-#define PB14                    5  // MISO
-#define PB15                    6  // MOSI
-#define PA9                     7  // SCK
+#define PB13                    5  // SCK
+#define PB14                    6  // MISO
+#define PB15                    7  // MOSI
 
-#define PA11                    8  // USB_DM
-#define PA12                    9  // USB_DP
+#define PA9                     8  // USB_VBUS
+#define PA11                    9  // USB_DM
+#define PA12                    10  // USB_DP
 
-#define PA13                    10  // SWDIO
-#define PA14                    11  // SWCLK
+#define PA13                    11  // SWDIO
+#define PA14                    12  // SWCLK
 
-#define PA15                    12  // AVCC_EN
+#define PA15                    13  // AVCC_EN
 
-#define PC10                    13  // SARA_RESET
-#define PC11                    14  // SARA_ON
-#define PC12                    15  // SARA_TXD
-#define PD2                     16  // SARA_RXD
+#define PC10                    14  // SARA_RESET
+#define PC11                    15  // SARA_ON
+#define PC12                    16  // SARA_TXD
+#define PD2                     17  // SARA_RXD
 
-#define PB3                     17  // SWO
+#define PB3                     18  // SWO
 
-#define PB4                     18  // SARA_RTS
-#define PB5                     19  // SARA_CTS
+#define PB4                     19  // SARA_RTS
+#define PB5                     20  // SARA_CTS
 
-#define PB6                     20  // Button_LED
+#define PB6                     21  // Button_LED
+#define PA10                    22  // LED
 
-#define PB9                     21  // DONE (TPL5110 power timer)
-#define PC1                     22  // DETECT (AD5933 electrode)
+#define PB9                     23  // DONE (TPL5110 power timer)
+#define PC1                     24  // DETECT (AD5933 electrode)
 
-#define PC9                     23  // BAT_CH
-#define PA8                     24  // BAT_CON
+#define PC9                     25  // BAT_CH
+#define PA8                     26  // BAT_CON
 
 // Alternate pins number
 #define PA0_ALT1                (PA0  | ALT1)
@@ -103,12 +106,12 @@
 #define PC10_ALT1               (PC10 | ALT1)
 #define PC11_ALT1               (PC11 | ALT1)
 
-#define NUM_DIGITAL_PINS        25
+#define NUM_DIGITAL_PINS        27
 #define NUM_ANALOG_INPUTS       0
 
 // On-board LED pin number
 #ifndef LED_BUILTIN
-  #define LED_BUILTIN           PNUM_NOT_DEFINED
+  #define LED_BUILTIN           PA10
 #endif
 
 // On-board user button
@@ -127,7 +130,7 @@
   #define PIN_SPI_MISO          PB14
 #endif
 #ifndef PIN_SPI_SCK
-  #define PIN_SPI_SCK           PA9
+  #define PIN_SPI_SCK           PB13
 #endif
 
 // I2C definitions
@@ -166,7 +169,7 @@
 #define LSE_VALUE               32768U
 
 // Extra HAL modules
-
+// #define USBD_VBUS_DETECTION_ENABLE
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
  *----------------------------------------------------------------------------*/
