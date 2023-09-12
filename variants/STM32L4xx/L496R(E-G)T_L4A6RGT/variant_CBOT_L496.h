@@ -169,6 +169,7 @@
 #define LSE_VALUE               32768U
 
 // Extra HAL modules
+// TODO: enable VBUS detection, PCB 2023.07-V2 has incorrect VBUS resistor divider
 // #define USBD_VBUS_DETECTION_ENABLE
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
