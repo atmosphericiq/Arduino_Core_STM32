@@ -166,6 +166,17 @@
   #define HAL_SD_MODULE_ENABLED
 #endif
 
+// UART 1 Definition
+// PA10 = USART1_RX, USART1_TX=PB6
+#define ENABLE_HWSERIAL1
+#ifndef PIN_SERIAL1_RX
+  #define PIN_SERIAL1_RX         PA10
+#endif
+#ifndef PIN_SERIAL1_TX
+  #define PIN_SERIAL1_TX         PB6 
+#endif
+
+
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
  *----------------------------------------------------------------------------*/
@@ -187,5 +198,6 @@
   // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
   //                            pins are NOT connected to anything by default.
   #define SERIAL_PORT_MONITOR   Serial
-  #define SERIAL_PORT_HARDWARE  Serial
+  #define SERIAL_PORT_HARDWARE  Serial1
+
 #endif //  __cplusplus
