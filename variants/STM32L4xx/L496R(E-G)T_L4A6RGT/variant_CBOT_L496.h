@@ -60,6 +60,8 @@
 #define PC7                     28 // User LED RED
 #define PC8                     29 // User LED BLUE
 
+#define PC13                    30 // LIS3MDL Data Ready PIN
+
 // Alternate pins number
 #define PA0_ALT1                (PA0  | ALT1)
 #define PA1_ALT1                (PA1  | ALT1)
@@ -110,7 +112,7 @@
 #define PC10_ALT1               (PC10 | ALT1)
 #define PC11_ALT1               (PC11 | ALT1)
 
-#define NUM_DIGITAL_PINS        27
+#define NUM_DIGITAL_PINS        31
 #define NUM_ANALOG_INPUTS       0
 
 // On-board LED pin number

@@ -44,7 +44,8 @@ const PinName digitalPin[] = {
   PA_8,   // BAT_CON
   PC_6,   // USER_LED_GREEN
   PC_7,   // USER_LED_RED
-  PC_8    // USER_LED_BLUE
+  PC_8,   // USER_LED_BLUE
+  PC_13,  // LIS3MDL DRDY PIN
 };
 
 // Analog (Ax) pin number array
