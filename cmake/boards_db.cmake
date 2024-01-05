@@ -4042,6 +4042,91 @@ target_link_options(BLUEPILL_F103CB_hid INTERFACE
 )
 
 
+# CBOT_L496
+# -----------------------------------------------------------------------------
+
+set(CBOT_L496_VARIANT_PATH "${CMAKE_CURRENT_LIST_DIR}/../variants/STM32L4xx/L496R(E-G)T_L4A6RGT")
+set(CBOT_L496_MAXSIZE 1048576)
+set(CBOT_L496_MAXDATASIZE 327680)
+set(CBOT_L496_MCU cortex-m4)
+set(CBOT_L496_FPCONF "fpv4-sp-d16-hard")
+add_library(CBOT_L496 INTERFACE)
+target_compile_options(CBOT_L496 INTERFACE
+  "SHELL:-DSTM32L496xx  "
+  "SHELL:-DCUSTOM_PERIPHERAL_PINS"
+  "SHELL:"
+  "SHELL:-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+  -mcpu=${CBOT_L496_MCU}
+)
+target_compile_definitions(CBOT_L496 INTERFACE
+  "STM32L4xx"
+	"ARDUINO_CBOT_L496"
+	"BOARD_NAME=\"CBOT_L496\""
+	"BOARD_ID=CBOT_L496"
+	"VARIANT_H=\"variant_CBOT_L496.h\""
+)
+target_include_directories(CBOT_L496 INTERFACE
+  ${CMAKE_CURRENT_LIST_DIR}/../system/STM32L4xx
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/STM32L4xx_HAL_Driver/Inc
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/STM32L4xx_HAL_Driver/Src
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/CMSIS/Device/ST/STM32L4xx/Include/
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/gcc/
+  ${CBOT_L496_VARIANT_PATH}
+)
+
+target_link_options(CBOT_L496 INTERFACE
+  "LINKER:--default-script=${CBOT_L496_VARIANT_PATH}/ldscript.ld"
+  "LINKER:--defsym=LD_FLASH_OFFSET=0x0"
+	"LINKER:--defsym=LD_MAX_SIZE=1048576"
+	"LINKER:--defsym=LD_MAX_DATA_SIZE=327680"
+  "SHELL:-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+  -mcpu=${CBOT_L496_MCU}
+)
+target_link_libraries(CBOT_L496 INTERFACE
+  arm_cortexM4lf_math
+)
+
+add_library(CBOT_L496_serial_disabled INTERFACE)
+target_compile_options(CBOT_L496_serial_disabled INTERFACE
+  "SHELL:"
+)
+add_library(CBOT_L496_serial_generic INTERFACE)
+target_compile_options(CBOT_L496_serial_generic INTERFACE
+  "SHELL:-DHAL_UART_MODULE_ENABLED"
+)
+add_library(CBOT_L496_serial_none INTERFACE)
+target_compile_options(CBOT_L496_serial_none INTERFACE
+  "SHELL:-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE"
+)
+add_library(CBOT_L496_usb_CDC INTERFACE)
+target_compile_options(CBOT_L496_usb_CDC INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0x0483 -DUSBD_PID=0x5740 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB"
+)
+add_library(CBOT_L496_usb_CDCgen INTERFACE)
+target_compile_options(CBOT_L496_usb_CDCgen INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0x0483 -DUSBD_PID=0x5740 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_CDC"
+)
+add_library(CBOT_L496_usb_HID INTERFACE)
+target_compile_options(CBOT_L496_usb_HID INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0x0483 -DUSBD_PID=0x5740 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_HID_COMPOSITE"
+)
+add_library(CBOT_L496_usb_none INTERFACE)
+target_compile_options(CBOT_L496_usb_none INTERFACE
+  "SHELL:"
+)
+add_library(CBOT_L496_xusb_FS INTERFACE)
+target_compile_options(CBOT_L496_xusb_FS INTERFACE
+  "SHELL:"
+)
+add_library(CBOT_L496_xusb_HS INTERFACE)
+target_compile_options(CBOT_L496_xusb_HS INTERFACE
+  "SHELL:-DUSE_USB_HS"
+)
+add_library(CBOT_L496_xusb_HSFS INTERFACE)
+target_compile_options(CBOT_L496_xusb_HSFS INTERFACE
+  "SHELL:-DUSE_USB_HS -DUSE_USB_HS_IN_FS"
+)
+
 # CoreBoard_F401RC
 # -----------------------------------------------------------------------------
 
@@ -93266,6 +93351,176 @@ target_compile_options(GENERIC_L486VGTX_xusb_HSFS INTERFACE
   "SHELL:-DUSE_USB_HS -DUSE_USB_HS_IN_FS"
 )
 
+# GENERIC_L496RETX
+# -----------------------------------------------------------------------------
+
+set(GENERIC_L496RETX_VARIANT_PATH "${CMAKE_CURRENT_LIST_DIR}/../variants/STM32L4xx/L496R(E-G)T_L4A6RGT")
+set(GENERIC_L496RETX_MAXSIZE 524288)
+set(GENERIC_L496RETX_MAXDATASIZE 327680)
+set(GENERIC_L496RETX_MCU cortex-m4)
+set(GENERIC_L496RETX_FPCONF "-")
+add_library(GENERIC_L496RETX INTERFACE)
+target_compile_options(GENERIC_L496RETX INTERFACE
+  "SHELL:-DSTM32L496xx  "
+  "SHELL:"
+  "SHELL:"
+  "SHELL:-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+  -mcpu=${GENERIC_L496RETX_MCU}
+)
+target_compile_definitions(GENERIC_L496RETX INTERFACE
+  "STM32L4xx"
+	"ARDUINO_GENERIC_L496RETX"
+	"BOARD_NAME=\"GENERIC_L496RETX\""
+	"BOARD_ID=GENERIC_L496RETX"
+	"VARIANT_H=\"variant_generic.h\""
+)
+target_include_directories(GENERIC_L496RETX INTERFACE
+  ${CMAKE_CURRENT_LIST_DIR}/../system/STM32L4xx
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/STM32L4xx_HAL_Driver/Inc
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/STM32L4xx_HAL_Driver/Src
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/CMSIS/Device/ST/STM32L4xx/Include/
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/gcc/
+  ${GENERIC_L496RETX_VARIANT_PATH}
+)
+
+target_link_options(GENERIC_L496RETX INTERFACE
+  "LINKER:--default-script=${GENERIC_L496RETX_VARIANT_PATH}/ldscript.ld"
+  "LINKER:--defsym=LD_FLASH_OFFSET=0x0"
+	"LINKER:--defsym=LD_MAX_SIZE=524288"
+	"LINKER:--defsym=LD_MAX_DATA_SIZE=327680"
+  "SHELL:-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+  -mcpu=${GENERIC_L496RETX_MCU}
+)
+target_link_libraries(GENERIC_L496RETX INTERFACE
+  arm_cortexM4lf_math
+)
+
+add_library(GENERIC_L496RETX_serial_disabled INTERFACE)
+target_compile_options(GENERIC_L496RETX_serial_disabled INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L496RETX_serial_generic INTERFACE)
+target_compile_options(GENERIC_L496RETX_serial_generic INTERFACE
+  "SHELL:-DHAL_UART_MODULE_ENABLED"
+)
+add_library(GENERIC_L496RETX_serial_none INTERFACE)
+target_compile_options(GENERIC_L496RETX_serial_none INTERFACE
+  "SHELL:-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE"
+)
+add_library(GENERIC_L496RETX_usb_CDC INTERFACE)
+target_compile_options(GENERIC_L496RETX_usb_CDC INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB"
+)
+add_library(GENERIC_L496RETX_usb_CDCgen INTERFACE)
+target_compile_options(GENERIC_L496RETX_usb_CDCgen INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_CDC"
+)
+add_library(GENERIC_L496RETX_usb_HID INTERFACE)
+target_compile_options(GENERIC_L496RETX_usb_HID INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_HID_COMPOSITE"
+)
+add_library(GENERIC_L496RETX_usb_none INTERFACE)
+target_compile_options(GENERIC_L496RETX_usb_none INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L496RETX_xusb_FS INTERFACE)
+target_compile_options(GENERIC_L496RETX_xusb_FS INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L496RETX_xusb_HS INTERFACE)
+target_compile_options(GENERIC_L496RETX_xusb_HS INTERFACE
+  "SHELL:-DUSE_USB_HS"
+)
+add_library(GENERIC_L496RETX_xusb_HSFS INTERFACE)
+target_compile_options(GENERIC_L496RETX_xusb_HSFS INTERFACE
+  "SHELL:-DUSE_USB_HS -DUSE_USB_HS_IN_FS"
+)
+
+# GENERIC_L496RGTX
+# -----------------------------------------------------------------------------
+
+set(GENERIC_L496RGTX_VARIANT_PATH "${CMAKE_CURRENT_LIST_DIR}/../variants/STM32L4xx/L496R(E-G)T_L4A6RGT")
+set(GENERIC_L496RGTX_MAXSIZE 1048576)
+set(GENERIC_L496RGTX_MAXDATASIZE 327680)
+set(GENERIC_L496RGTX_MCU cortex-m4)
+set(GENERIC_L496RGTX_FPCONF "-")
+add_library(GENERIC_L496RGTX INTERFACE)
+target_compile_options(GENERIC_L496RGTX INTERFACE
+  "SHELL:-DSTM32L496xx  "
+  "SHELL:"
+  "SHELL:"
+  "SHELL:-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+  -mcpu=${GENERIC_L496RGTX_MCU}
+)
+target_compile_definitions(GENERIC_L496RGTX INTERFACE
+  "STM32L4xx"
+	"ARDUINO_GENERIC_L496RGTX"
+	"BOARD_NAME=\"GENERIC_L496RGTX\""
+	"BOARD_ID=GENERIC_L496RGTX"
+	"VARIANT_H=\"variant_generic.h\""
+)
+target_include_directories(GENERIC_L496RGTX INTERFACE
+  ${CMAKE_CURRENT_LIST_DIR}/../system/STM32L4xx
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/STM32L4xx_HAL_Driver/Inc
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/STM32L4xx_HAL_Driver/Src
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/CMSIS/Device/ST/STM32L4xx/Include/
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/gcc/
+  ${GENERIC_L496RGTX_VARIANT_PATH}
+)
+
+target_link_options(GENERIC_L496RGTX INTERFACE
+  "LINKER:--default-script=${GENERIC_L496RGTX_VARIANT_PATH}/ldscript.ld"
+  "LINKER:--defsym=LD_FLASH_OFFSET=0x0"
+	"LINKER:--defsym=LD_MAX_SIZE=1048576"
+	"LINKER:--defsym=LD_MAX_DATA_SIZE=327680"
+  "SHELL:-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+  -mcpu=${GENERIC_L496RGTX_MCU}
+)
+target_link_libraries(GENERIC_L496RGTX INTERFACE
+  arm_cortexM4lf_math
+)
+
+add_library(GENERIC_L496RGTX_serial_disabled INTERFACE)
+target_compile_options(GENERIC_L496RGTX_serial_disabled INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L496RGTX_serial_generic INTERFACE)
+target_compile_options(GENERIC_L496RGTX_serial_generic INTERFACE
+  "SHELL:-DHAL_UART_MODULE_ENABLED"
+)
+add_library(GENERIC_L496RGTX_serial_none INTERFACE)
+target_compile_options(GENERIC_L496RGTX_serial_none INTERFACE
+  "SHELL:-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE"
+)
+add_library(GENERIC_L496RGTX_usb_CDC INTERFACE)
+target_compile_options(GENERIC_L496RGTX_usb_CDC INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB"
+)
+add_library(GENERIC_L496RGTX_usb_CDCgen INTERFACE)
+target_compile_options(GENERIC_L496RGTX_usb_CDCgen INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_CDC"
+)
+add_library(GENERIC_L496RGTX_usb_HID INTERFACE)
+target_compile_options(GENERIC_L496RGTX_usb_HID INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_HID_COMPOSITE"
+)
+add_library(GENERIC_L496RGTX_usb_none INTERFACE)
+target_compile_options(GENERIC_L496RGTX_usb_none INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L496RGTX_xusb_FS INTERFACE)
+target_compile_options(GENERIC_L496RGTX_xusb_FS INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L496RGTX_xusb_HS INTERFACE)
+target_compile_options(GENERIC_L496RGTX_xusb_HS INTERFACE
+  "SHELL:-DUSE_USB_HS"
+)
+add_library(GENERIC_L496RGTX_xusb_HSFS INTERFACE)
+target_compile_options(GENERIC_L496RGTX_xusb_HSFS INTERFACE
+  "SHELL:-DUSE_USB_HS -DUSE_USB_HS_IN_FS"
+)
+
 # GENERIC_L496ZETX
 # -----------------------------------------------------------------------------
 
@@ -93509,6 +93764,91 @@ target_compile_options(GENERIC_L496ZGTXP_xusb_HS INTERFACE
 )
 add_library(GENERIC_L496ZGTXP_xusb_HSFS INTERFACE)
 target_compile_options(GENERIC_L496ZGTXP_xusb_HSFS INTERFACE
+  "SHELL:-DUSE_USB_HS -DUSE_USB_HS_IN_FS"
+)
+
+# GENERIC_L4A6RGTX
+# -----------------------------------------------------------------------------
+
+set(GENERIC_L4A6RGTX_VARIANT_PATH "${CMAKE_CURRENT_LIST_DIR}/../variants/STM32L4xx/L496R(E-G)T_L4A6RGT")
+set(GENERIC_L4A6RGTX_MAXSIZE 1048576)
+set(GENERIC_L4A6RGTX_MAXDATASIZE 327680)
+set(GENERIC_L4A6RGTX_MCU cortex-m4)
+set(GENERIC_L4A6RGTX_FPCONF "-")
+add_library(GENERIC_L4A6RGTX INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX INTERFACE
+  "SHELL:-DSTM32L4A6xx  "
+  "SHELL:"
+  "SHELL:"
+  "SHELL:-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+  -mcpu=${GENERIC_L4A6RGTX_MCU}
+)
+target_compile_definitions(GENERIC_L4A6RGTX INTERFACE
+  "STM32L4xx"
+	"ARDUINO_GENERIC_L4A6RGTX"
+	"BOARD_NAME=\"GENERIC_L4A6RGTX\""
+	"BOARD_ID=GENERIC_L4A6RGTX"
+	"VARIANT_H=\"variant_generic.h\""
+)
+target_include_directories(GENERIC_L4A6RGTX INTERFACE
+  ${CMAKE_CURRENT_LIST_DIR}/../system/STM32L4xx
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/STM32L4xx_HAL_Driver/Inc
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/STM32L4xx_HAL_Driver/Src
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/CMSIS/Device/ST/STM32L4xx/Include/
+  ${CMAKE_CURRENT_LIST_DIR}/../system/Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/gcc/
+  ${GENERIC_L4A6RGTX_VARIANT_PATH}
+)
+
+target_link_options(GENERIC_L4A6RGTX INTERFACE
+  "LINKER:--default-script=${GENERIC_L4A6RGTX_VARIANT_PATH}/ldscript.ld"
+  "LINKER:--defsym=LD_FLASH_OFFSET=0x0"
+	"LINKER:--defsym=LD_MAX_SIZE=1048576"
+	"LINKER:--defsym=LD_MAX_DATA_SIZE=327680"
+  "SHELL:-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+  -mcpu=${GENERIC_L4A6RGTX_MCU}
+)
+target_link_libraries(GENERIC_L4A6RGTX INTERFACE
+  arm_cortexM4lf_math
+)
+
+add_library(GENERIC_L4A6RGTX_serial_disabled INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_serial_disabled INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L4A6RGTX_serial_generic INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_serial_generic INTERFACE
+  "SHELL:-DHAL_UART_MODULE_ENABLED"
+)
+add_library(GENERIC_L4A6RGTX_serial_none INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_serial_none INTERFACE
+  "SHELL:-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE"
+)
+add_library(GENERIC_L4A6RGTX_usb_CDC INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_usb_CDC INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB"
+)
+add_library(GENERIC_L4A6RGTX_usb_CDCgen INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_usb_CDCgen INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_CDC"
+)
+add_library(GENERIC_L4A6RGTX_usb_HID INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_usb_HID INTERFACE
+  "SHELL:-DUSBCON  -DUSBD_VID=0 -DUSBD_PID=0 -DHAL_PCD_MODULE_ENABLED -DUSBD_USE_HID_COMPOSITE"
+)
+add_library(GENERIC_L4A6RGTX_usb_none INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_usb_none INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L4A6RGTX_xusb_FS INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_xusb_FS INTERFACE
+  "SHELL:"
+)
+add_library(GENERIC_L4A6RGTX_xusb_HS INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_xusb_HS INTERFACE
+  "SHELL:-DUSE_USB_HS"
+)
+add_library(GENERIC_L4A6RGTX_xusb_HSFS INTERFACE)
+target_compile_options(GENERIC_L4A6RGTX_xusb_HSFS INTERFACE
   "SHELL:-DUSE_USB_HS -DUSE_USB_HS_IN_FS"
 )
 

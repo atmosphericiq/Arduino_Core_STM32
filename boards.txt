@@ -9797,6 +9797,22 @@ GenL4.menu.pnum.GENERIC_L486VGTX.build.board=GENERIC_L486VGTX
 GenL4.menu.pnum.GENERIC_L486VGTX.build.product_line=STM32L486xx
 GenL4.menu.pnum.GENERIC_L486VGTX.build.variant=STM32L4xx/L475V(C-E-G)T_L476V(C-E-G)T_L486VGT
 
+# Generic L496RETx
+GenL4.menu.pnum.GENERIC_L496RETX=Generic L496RETx
+GenL4.menu.pnum.GENERIC_L496RETX.upload.maximum_size=524288
+GenL4.menu.pnum.GENERIC_L496RETX.upload.maximum_data_size=327680
+GenL4.menu.pnum.GENERIC_L496RETX.build.board=GENERIC_L496RETX
+GenL4.menu.pnum.GENERIC_L496RETX.build.product_line=STM32L496xx
+GenL4.menu.pnum.GENERIC_L496RETX.build.variant=STM32L4xx/L496R(E-G)T_L4A6RGT
+
+# Generic L496RGTx
+GenL4.menu.pnum.GENERIC_L496RGTX=Generic L496RGTx
+GenL4.menu.pnum.GENERIC_L496RGTX.upload.maximum_size=1048576
+GenL4.menu.pnum.GENERIC_L496RGTX.upload.maximum_data_size=327680
+GenL4.menu.pnum.GENERIC_L496RGTX.build.board=GENERIC_L496RGTX
+GenL4.menu.pnum.GENERIC_L496RGTX.build.product_line=STM32L496xx
+GenL4.menu.pnum.GENERIC_L496RGTX.build.variant=STM32L4xx/L496R(E-G)T_L4A6RGT
+
 # Generic L496ZETx
 GenL4.menu.pnum.GENERIC_L496ZETX=Generic L496ZETx
 GenL4.menu.pnum.GENERIC_L496ZETX.upload.maximum_size=524288
@@ -9820,6 +9836,14 @@ GenL4.menu.pnum.GENERIC_L496ZGTXP.upload.maximum_data_size=327680
 GenL4.menu.pnum.GENERIC_L496ZGTXP.build.board=GENERIC_L496ZGTXP
 GenL4.menu.pnum.GENERIC_L496ZGTXP.build.product_line=STM32L496xx
 GenL4.menu.pnum.GENERIC_L496ZGTXP.build.variant=STM32L4xx/L496ZGTxP_L4A6ZGTxP
+
+# Generic L4A6RGTx
+GenL4.menu.pnum.GENERIC_L4A6RGTX=Generic L4A6RGTx
+GenL4.menu.pnum.GENERIC_L4A6RGTX.upload.maximum_size=1048576
+GenL4.menu.pnum.GENERIC_L4A6RGTX.upload.maximum_data_size=327680
+GenL4.menu.pnum.GENERIC_L4A6RGTX.build.board=GENERIC_L4A6RGTX
+GenL4.menu.pnum.GENERIC_L4A6RGTX.build.product_line=STM32L4A6xx
+GenL4.menu.pnum.GENERIC_L4A6RGTX.build.variant=STM32L4xx/L496R(E-G)T_L4A6RGT
 
 # Generic L4A6ZGTx
 GenL4.menu.pnum.GENERIC_L4A6ZGTX=Generic L4A6ZGTx
@@ -11208,6 +11232,52 @@ SparkFun.menu.upload_method.dfuMethod.upload.options=
 SparkFun.menu.upload_method.dfuMethod.upload.tool=stm32CubeProg
 
 ################################################################################
+# AtmosphericIQ Boards
+
+AtmosphericIQ.name=AtmosphericIQ Boards
+
+AtmosphericIQ.build.core=arduino
+AtmosphericIQ.build.board=AtmosphericIQ
+AtmosphericIQ.build.variant_h=variant_{build.board}.h
+AtmosphericIQ.build.st_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+AtmosphericIQ.build.flash_offset=0x0
+AtmosphericIQ.upload.maximum_size=0
+AtmosphericIQ.upload.maximum_data_size=0
+
+# AtmosphericIQ CBOT L496 board
+AtmosphericIQ.menu.pnum.CBOT_L496=CBOT L496
+AtmosphericIQ.menu.pnum.CBOT_L496.upload.maximum_size=1048576
+AtmosphericIQ.menu.pnum.CBOT_L496.upload.maximum_data_size=327680
+AtmosphericIQ.menu.pnum.CBOT_L496.build.mcu=cortex-m4
+AtmosphericIQ.menu.pnum.CBOT_L496.build.fpu=-mfpu=fpv4-sp-d16
+AtmosphericIQ.menu.pnum.CBOT_L496.build.float-abi=-mfloat-abi=hard
+AtmosphericIQ.menu.pnum.CBOT_L496.build.board=CBOT_L496
+AtmosphericIQ.menu.pnum.CBOT_L496.build.series=STM32L4xx
+AtmosphericIQ.menu.pnum.CBOT_L496.build.product_line=STM32L496xx
+AtmosphericIQ.menu.pnum.CBOT_L496.build.variant_h=variant_{build.board}.h
+AtmosphericIQ.menu.pnum.CBOT_L496.build.variant=STM32L4xx/L496R(E-G)T_L4A6RGT
+AtmosphericIQ.menu.pnum.CBOT_L496.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
+AtmosphericIQ.menu.pnum.CBOT_L496.build.cmsis_lib_gcc=arm_cortexM4lf_math
+AtmosphericIQ.menu.pnum.CBOT_L496.build.vid=0x0483
+AtmosphericIQ.menu.pnum.CBOT_L496.build.pid=0x5740
+
+# Upload menu
+AtmosphericIQ.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+AtmosphericIQ.menu.upload_method.swdMethod.upload.protocol=0
+AtmosphericIQ.menu.upload_method.swdMethod.upload.options=
+AtmosphericIQ.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
+
+AtmosphericIQ.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
+AtmosphericIQ.menu.upload_method.serialMethod.upload.protocol=1
+AtmosphericIQ.menu.upload_method.serialMethod.upload.options={serial.port.file}
+AtmosphericIQ.menu.upload_method.serialMethod.upload.tool=stm32CubeProg
+
+AtmosphericIQ.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
+AtmosphericIQ.menu.upload_method.dfuMethod.upload.protocol=2
+AtmosphericIQ.menu.upload_method.dfuMethod.upload.options=
+AtmosphericIQ.menu.upload_method.dfuMethod.upload.tool=stm32CubeProg
+
+################################################################################
 # Serialx activation
 Nucleo_144.menu.xserial.generic=Enabled (generic 'Serial')
 Nucleo_144.menu.xserial.none=Enabled (no generic 'Serial')
@@ -11420,6 +11490,12 @@ SparkFun.menu.xserial.none=Enabled (no generic 'Serial')
 SparkFun.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 SparkFun.menu.xserial.disabled=Disabled (no Serial support)
 SparkFun.menu.xserial.disabled.build.xSerial=
+
+AtmosphericIQ.menu.xserial.generic=Enabled (generic 'Serial')
+AtmosphericIQ.menu.xserial.none=Enabled (no generic 'Serial')
+AtmosphericIQ.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+AtmosphericIQ.menu.xserial.disabled=Disabled (no Serial support)
+AtmosphericIQ.menu.xserial.disabled.build.xSerial=
 
 # USB connectivity
 Nucleo_144.menu.usb.none=None
@@ -11769,6 +11845,19 @@ SparkFun.menu.xusb.HS=High Speed
 SparkFun.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
 SparkFun.menu.xusb.HSFS=High Speed in Full Speed mode
 SparkFun.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
+
+AtmosphericIQ.menu.usb.none=None
+AtmosphericIQ.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
+AtmosphericIQ.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+AtmosphericIQ.menu.usb.CDC=CDC (no generic 'Serial')
+AtmosphericIQ.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+AtmosphericIQ.menu.usb.HID=HID (keyboard and mouse)
+AtmosphericIQ.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+AtmosphericIQ.menu.xusb.FS=Low/Full Speed
+AtmosphericIQ.menu.xusb.HS=High Speed
+AtmosphericIQ.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
+AtmosphericIQ.menu.xusb.HSFS=High Speed in Full Speed mode
+AtmosphericIQ.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
 
 # Optimizations
 Nucleo_144.menu.opt.osstd=Smallest (-Os default)
@@ -12451,6 +12540,26 @@ SparkFun.menu.opt.ogstd.build.flags.optimize=-Og
 SparkFun.menu.opt.o0std=No Optimization (-O0)
 SparkFun.menu.opt.o0std.build.flags.optimize=-O0
 
+AtmosphericIQ.menu.opt.osstd=Smallest (-Os default)
+AtmosphericIQ.menu.opt.oslto=Smallest (-Os) with LTO
+AtmosphericIQ.menu.opt.oslto.build.flags.optimize=-Os -flto
+AtmosphericIQ.menu.opt.o1std=Fast (-O1)
+AtmosphericIQ.menu.opt.o1std.build.flags.optimize=-O1
+AtmosphericIQ.menu.opt.o1lto=Fast (-O1) with LTO
+AtmosphericIQ.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+AtmosphericIQ.menu.opt.o2std=Faster (-O2)
+AtmosphericIQ.menu.opt.o2std.build.flags.optimize=-O2
+AtmosphericIQ.menu.opt.o2lto=Faster (-O2) with LTO
+AtmosphericIQ.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+AtmosphericIQ.menu.opt.o3std=Fastest (-O3)
+AtmosphericIQ.menu.opt.o3std.build.flags.optimize=-O3
+AtmosphericIQ.menu.opt.o3lto=Fastest (-O3) with LTO
+AtmosphericIQ.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+AtmosphericIQ.menu.opt.ogstd=Debug (-Og)
+AtmosphericIQ.menu.opt.ogstd.build.flags.optimize=-Og
+AtmosphericIQ.menu.opt.o0std=No Optimization (-O0)
+AtmosphericIQ.menu.opt.o0std.build.flags.optimize=-O0
+
 # Debug information
 Nucleo_144.menu.dbg.none=None
 Nucleo_144.menu.dbg.enable_sym=Symbols Enabled (-g)
@@ -12711,6 +12820,14 @@ SparkFun.menu.dbg.enable_log=Core logs Enabled
 SparkFun.menu.dbg.enable_log.build.flags.debug=
 SparkFun.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
 SparkFun.menu.dbg.enable_all.build.flags.debug=-g
+
+AtmosphericIQ.menu.dbg.none=None
+AtmosphericIQ.menu.dbg.enable_sym=Symbols Enabled (-g)
+AtmosphericIQ.menu.dbg.enable_sym.build.flags.debug=-g -DNDEBUG
+AtmosphericIQ.menu.dbg.enable_log=Core logs Enabled
+AtmosphericIQ.menu.dbg.enable_log.build.flags.debug=
+AtmosphericIQ.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
+AtmosphericIQ.menu.dbg.enable_all.build.flags.debug=-g
 
 # C Runtime Library
 Nucleo_144.menu.rtlib.nano=Newlib Nano (default)
@@ -13052,3 +13169,13 @@ SparkFun.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
 SparkFun.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
 SparkFun.menu.rtlib.full=Newlib Standard
 SparkFun.menu.rtlib.full.build.flags.ldspecs=
+
+AtmosphericIQ.menu.rtlib.nano=Newlib Nano (default)
+AtmosphericIQ.menu.rtlib.nanofp=Newlib Nano + Float Printf
+AtmosphericIQ.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+AtmosphericIQ.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+AtmosphericIQ.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+AtmosphericIQ.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+AtmosphericIQ.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+AtmosphericIQ.menu.rtlib.full=Newlib Standard
+AtmosphericIQ.menu.rtlib.full.build.flags.ldspecs=
