@@ -48,13 +48,19 @@
 #define PB5                     20  // SARA_CTS
 
 #define PB6                     21  // Button_LED
-#define PA10                    22  // LED
+#define PA10                    22  // USER_LED
 
 #define PB9                     23  // DONE (TPL5110 power timer)
 #define PC1                     24  // DETECT (AD5933 electrode)
 
 #define PC9                     25  // BAT_CH
 #define PA8                     26  // BAT_CON
+
+#define PC6                     27 // User LED GREEN
+#define PC7                     28 // User LED RED
+#define PC8                     29 // User LED BLUE
+
+#define PC13                    30 // LIS3MDL Data Ready PIN
 
 // Alternate pins number
 #define PA0_ALT1                (PA0  | ALT1)
@@ -106,7 +112,7 @@
 #define PC10_ALT1               (PC10 | ALT1)
 #define PC11_ALT1               (PC11 | ALT1)
 
-#define NUM_DIGITAL_PINS        27
+#define NUM_DIGITAL_PINS        31
 #define NUM_ANALOG_INPUTS       0
 
 // On-board LED pin number
